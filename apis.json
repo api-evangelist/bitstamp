@@ -1,0 +1,58 @@
+{
+    "name": "Bitstamp",
+    "description": "Trade digital currencies at www.bitstamp.net      We support the exchange of currencies, information, ideas and trust.     Over 850,000 traders around the world use Bitstamp???s best-in-class trading tools. Join them trading BTC, XRP and LTC now on the E...",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1249-bitstamp.jpg",
+    "tags": [
+        "api provider",
+        "blockchain",
+        "blockchains",
+        "financial",
+        "financial services",
+        "have api",
+        "marketplaces",
+        "virtual currency"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/bitstamp\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Bitstamp",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1249-bitstamp.jpg",
+            "humanURL": "https:\/\/www.bitstamp.net",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/bitstamp-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "https:\/\/www.bitstamp.net\/api\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/bitstamp"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/bitstamp"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/Bitstamp"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.bitstamp.net"
+        }
+    ]
+}
