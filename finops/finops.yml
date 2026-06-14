@@ -1,0 +1,48 @@
+name: Bitstamp API FinOps
+description: Bitstamp charges no fees for API access itself. Costs arise from trading activity (maker/taker fees based on 30-day rolling volume), cryptocurrency withdrawals, and fiat wire transfers. Fee tiers decrease with higher monthly trading volume.
+apiAccessCost:
+  description: API access is free for all registered account holders. No subscription or API key fee applies.
+  cost: 0
+  currency: USD
+tradingFees:
+  description: Volume-based maker/taker fee schedule. Fees are calculated on 30-day rolling trading volume and reset monthly.
+  url: https://www.bitstamp.net/fee_schedule/
+  feeModel: maker-taker
+  tiers:
+    - tier: 1
+      monthlyVolumeUSD: '0 – 10,000'
+      makerFee: '0.30%'
+      takerFee: '0.40%'
+    - tier: 2
+      monthlyVolumeUSD: '10,001 – 20,000'
+      makerFee: '0.24%'
+      takerFee: '0.40%'
+    - tier: 3
+      monthlyVolumeUSD: '20,001 – 100,000'
+      makerFee: '0.22%'
+      takerFee: '0.32%'
+    - tier: 4
+      monthlyVolumeUSD: '100,001 – 1,000,000'
+      makerFee: '0.14%'
+      takerFee: '0.25%'
+    - tier: 5
+      monthlyVolumeUSD: '1,000,001 – 20,000,000'
+      makerFee: '0.10%'
+      takerFee: '0.15%'
+    - tier: 6
+      monthlyVolumeUSD: '20,000,001+'
+      makerFee: '0.00%'
+      takerFee: '0.03%'
+withdrawalFees:
+  description: Cryptocurrency withdrawal fees vary by asset. Fiat withdrawals via wire transfer incur flat or percentage fees depending on currency and region.
+  url: https://www.bitstamp.net/fee_schedule/
+  notes: Check the fee schedule page for the latest withdrawal fee table per asset.
+institutionalPricing:
+  description: High-volume and institutional clients may negotiate custom fee rates below the published schedule.
+  contactUrl: https://www.bitstamp.net/institutional/
+costOptimizationTips:
+  - Use maker (limit) orders instead of taker (market) orders to pay lower fees at all volume tiers.
+  - Increase 30-day rolling trading volume to unlock lower fee tiers.
+  - Use WebSocket API for real-time market data instead of polling REST endpoints to avoid unnecessary API calls.
+  - Contact Bitstamp institutional team for custom rates if monthly volume exceeds $20M.
+  - Use the API key kill-switch (POST /api/v2/revoke_all_api_keys/) immediately if keys are compromised to prevent unauthorized trades and associated fees.

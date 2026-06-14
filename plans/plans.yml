@@ -1,0 +1,33 @@
+name: Bitstamp API Plans
+description: Bitstamp does not offer tiered subscription plans for API access. All registered users receive full API access. Trading fees are volume-based (30-day rolling volume), decreasing as monthly trading volume increases. Institutional clients may negotiate custom fee arrangements.
+plans:
+  - name: Standard API Access
+    description: Full REST and WebSocket API access available to all registered Bitstamp account holders at no additional cost. Rate limits and trading fees apply.
+    url: https://www.bitstamp.net/api/
+    rateLimits:
+      - name: Requests per second
+        value: 400
+        unit: requests/second
+      - name: Default threshold
+        value: 10000
+        unit: requests/10 minutes
+    features:
+      - Public market data endpoints (no authentication required)
+      - Private trading endpoints (HMAC-SHA256 authentication)
+      - WebSocket real-time data streams
+      - Order placement and management
+      - Account balance and transaction history
+      - Withdrawal and deposit management
+      - Sub-account management
+      - Staking and lending access
+      - Travel Rule compliance endpoints
+      - API key kill-switch (revoke all keys instantly)
+  - name: Institutional / Custom
+    description: Higher rate limits and custom trading fee tiers available through direct commercial agreements with Bitstamp for institutional and high-volume traders.
+    url: https://www.bitstamp.net/institutional/
+    features:
+      - Custom rate limits above standard 400 req/s
+      - Negotiated maker/taker fee schedules
+      - Dedicated account support
+      - Co-location and low-latency options
+      - Custom settlement arrangements

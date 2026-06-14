@@ -1,0 +1,93 @@
+name: Bitstamp
+description: European cryptocurrency exchange offering REST and WebSocket APIs for spot trading, order management, market data, account balances, and transaction history across major crypto pairs. Founded in 2011, Bitstamp provides institutional-grade infrastructure with HMAC-SHA256 authenticated private endpoints, real-time WebSocket streaming, margin trading, derivatives, staking, and travel-rule compliance tooling.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Cryptocurrency
+  - Exchange
+  - Trading
+  - Bitcoin
+  - Ethereum
+  - Spot Trading
+  - WebSocket
+  - Market Data
+  - Order Management
+  - Finance
+apis:
+  - name: Bitstamp REST API
+    description: REST API providing public market data endpoints and authenticated private endpoints for trading, account management, withdrawals, deposits, and derivatives across cryptocurrency pairs.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.bitstamp.net/api/
+    baseURL: https://www.bitstamp.net
+    tags:
+      - Cryptocurrency
+      - REST
+      - Trading
+      - Market Data
+      - Orders
+    properties:
+      - type: Documentation
+        url: https://www.bitstamp.net/api/
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/rate-limits/rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/finops/finops.yml
+    contact:
+      - FN: Bitstamp Support
+        url: https://www.bitstamp.net/support/
+        email: support@bitstamp.net
+  - name: Bitstamp WebSocket API
+    description: Real-time WebSocket API providing live market data streams including order book updates, live trades, ticker data, and private account event channels via authenticated token-based subscriptions.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.bitstamp.net/api/
+    baseURL: wss://ws.bitstamp.net
+    tags:
+      - WebSocket
+      - Real-time
+      - Market Data
+      - Order Book
+      - Trades
+      - Ticker
+    properties:
+      - type: Documentation
+        url: https://www.bitstamp.net/api/
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/rate-limits/rate-limits.yml
+    contact:
+      - FN: Bitstamp Support
+        url: https://www.bitstamp.net/support/
+        email: support@bitstamp.net
+common:
+  - type: Authentication
+    url: https://www.bitstamp.net/api/#authentication
+  - type: TermsOfService
+    url: https://www.bitstamp.net/terms-of-use/
+  - type: PrivacyPolicy
+    url: https://www.bitstamp.net/privacy-policy/
+  - type: StatusPage
+    url: https://status.bitstamp.net/
+  - type: Support
+    url: https://www.bitstamp.net/support/
+  - type: Login
+    url: https://www.bitstamp.net/account/login/
+  - type: SignUp
+    url: https://www.bitstamp.net/account/register/
+  - type: FeeSchedule
+    url: https://www.bitstamp.net/fee_schedule/
+  - type: Blog
+    url: https://www.bitstamp.net/blog/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bitstamp/
+  - type: Twitter
+    url: https://twitter.com/Bitstamp
+  - type: Facebook
+    url: https://www.facebook.com/Bitstamp/
+maintainers:
+  - FN: API Evangelist
+    url: https://apievangelist.com
+    email: info@apievangelist.com
