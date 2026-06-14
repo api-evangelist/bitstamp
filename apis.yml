@@ -31,6 +31,8 @@ apis:
     properties:
       - type: Documentation
         url: https://www.bitstamp.net/api/
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/openapi/openapi.json
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/plans/plans.yml
       - type: RateLimits

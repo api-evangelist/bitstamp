@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TradingPairInfo",
+  "description": "JSON Schema for Bitstamp TradingPairInfo",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Trading pair symbol (e.g., BTC/USD)"
+    },
+    "url_symbol": {
+      "type": "string",
+      "description": "URL-friendly pair identifier (e.g., btcusd)"
+    },
+    "base_decimals": {
+      "type": "integer",
+      "description": "Decimal precision for base asset"
+    },
+    "counter_decimals": {
+      "type": "integer",
+      "description": "Decimal precision for counter/quote asset"
+    },
+    "instant_order_counter_decimals": {
+      "type": "integer",
+      "description": "Decimal precision for instant orders"
+    },
+    "minimum_order": {
+      "type": "string",
+      "description": "Minimum order size with currency"
+    },
+    "trading": {
+      "type": "string",
+      "description": "Trading status (Enabled/Disabled)"
+    },
+    "instant_and_market_orders": {
+      "type": "string",
+      "description": "Instant and market orders availability (Enabled/Disabled)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full pair name description"
+    }
+  }
+}

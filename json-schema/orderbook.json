@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderBook",
+  "description": "JSON Schema for Bitstamp OrderBook",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "description": "Unix timestamp"
+    },
+    "microtimestamp": {
+      "type": "string",
+      "description": "Microsecond precision timestamp"
+    },
+    "bids": {
+      "type": "array",
+      "description": "List of buy orders [price, amount]",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "asks": {
+      "type": "array",
+      "description": "List of sell orders [price, amount]",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "operationId": "gethourlyticker",
+  "summary": "Get hourly ticker data",
+  "path": "/api/v2/ticker_hour/{currency_pair}/",
+  "method": "GET",
+  "example": {
+    "timestamp": "string",
+    "open": "string",
+    "high": "string",
+    "low": "string",
+    "last": "string",
+    "volume": "string",
+    "vwap": "string",
+    "bid": "string",
+    "ask": "string",
+    "side": "string",
+    "open_24": "string",
+    "percent_change_24": "string",
+    "market_type": "string"
+  }
+}

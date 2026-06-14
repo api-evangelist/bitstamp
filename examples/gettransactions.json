@@ -1,0 +1,15 @@
+{
+  "operationId": "gettransactions",
+  "summary": "Get recent transactions",
+  "path": "/api/v2/transactions/{currency_pair}/",
+  "method": "GET",
+  "example": [
+    {
+      "date": "string",
+      "tid": "string",
+      "price": "string",
+      "amount": "string",
+      "type": "string"
+    }
+  ]
+}

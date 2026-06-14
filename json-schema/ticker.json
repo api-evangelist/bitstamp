@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ticker",
+  "description": "JSON Schema for Bitstamp Ticker",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "description": "Unix timestamp"
+    },
+    "open": {
+      "type": "string",
+      "description": "First price of the day"
+    },
+    "high": {
+      "type": "string",
+      "description": "Highest price of the day"
+    },
+    "low": {
+      "type": "string",
+      "description": "Lowest price of the day"
+    },
+    "last": {
+      "type": "string",
+      "description": "Last BTC price"
+    },
+    "volume": {
+      "type": "string",
+      "description": "Volume-weighted average of all prices of the day"
+    },
+    "vwap": {
+      "type": "string",
+      "description": "Volume weighted average price"
+    },
+    "bid": {
+      "type": "string",
+      "description": "Highest buy order"
+    },
+    "ask": {
+      "type": "string",
+      "description": "Lowest sell order"
+    },
+    "side": {
+      "type": "string",
+      "description": "Side of the last trade (0 = buy, 1 = sell)"
+    },
+    "open_24": {
+      "type": "string",
+      "description": "Price 24 hours ago"
+    },
+    "percent_change_24": {
+      "type": "string",
+      "description": "Percent change in last 24 hours"
+    },
+    "market_type": {
+      "type": "string",
+      "description": "Market type (e.g., SPOT)"
+    }
+  }
+}

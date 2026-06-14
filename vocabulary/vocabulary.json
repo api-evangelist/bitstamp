@@ -1,0 +1,98 @@
+{
+  "name": "Bitstamp API Vocabulary",
+  "description": "Key terms, operations, and data properties from the Bitstamp API",
+  "tags": [
+    "Market Data"
+  ],
+  "operations": [
+    {
+      "id": "getticker",
+      "summary": "Get ticker data",
+      "path": "/api/v2/ticker/{currency_pair}/",
+      "method": "GET"
+    },
+    {
+      "id": "gethourlyticker",
+      "summary": "Get hourly ticker data",
+      "path": "/api/v2/ticker_hour/{currency_pair}/",
+      "method": "GET"
+    },
+    {
+      "id": "getorderbook",
+      "summary": "Get order book",
+      "path": "/api/v2/order_book/{currency_pair}/",
+      "method": "GET"
+    },
+    {
+      "id": "gettransactions",
+      "summary": "Get recent transactions",
+      "path": "/api/v2/transactions/{currency_pair}/",
+      "method": "GET"
+    },
+    {
+      "id": "gettradingpairsinfo",
+      "summary": "Get trading pairs info",
+      "path": "/api/v2/trading-pairs-info/",
+      "method": "GET"
+    },
+    {
+      "id": "getohlcdata",
+      "summary": "Get OHLC data",
+      "path": "/api/v2/ohlc/{currency_pair}/",
+      "method": "GET"
+    },
+    {
+      "id": "getcurrencies",
+      "summary": "Get available currencies",
+      "path": "/api/v2/currencies/",
+      "method": "GET"
+    }
+  ],
+  "parameters": [
+    "currency_pair",
+    "end",
+    "exclude_current_candle",
+    "group",
+    "limit",
+    "start",
+    "step",
+    "time"
+  ],
+  "properties": [
+    "amount",
+    "ask",
+    "asks",
+    "base_decimals",
+    "bid",
+    "bids",
+    "close",
+    "code",
+    "counter_decimals",
+    "data",
+    "date",
+    "description",
+    "high",
+    "instant_and_market_orders",
+    "instant_order_counter_decimals",
+    "last",
+    "low",
+    "market_type",
+    "microtimestamp",
+    "minimum_order",
+    "name",
+    "open",
+    "open_24",
+    "percent_change_24",
+    "price",
+    "reason",
+    "side",
+    "status",
+    "tid",
+    "timestamp",
+    "trading",
+    "type",
+    "url_symbol",
+    "volume",
+    "vwap"
+  ]
+}

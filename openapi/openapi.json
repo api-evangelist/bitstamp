@@ -1,0 +1,725 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bitstamp API",
+    "description": "Bitstamp cryptocurrency exchange REST API providing market data including tickers, order books, transactions, OHLC data, and trading pair information.",
+    "version": "2.0.0",
+    "x-jentic-source-url": "https://www.bitstamp.net/api/"
+  },
+  "servers": [
+    {
+      "url": "https://www.bitstamp.net",
+      "description": "Bitstamp production server"
+    }
+  ],
+  "paths": {
+    "/api/v2/ticker/{currency_pair}/": {
+      "get": {
+        "operationId": "getticker",
+        "summary": "Get ticker data",
+        "description": "Returns ticker data for the specified currency pair including last price, bid, ask, volume, and 24-hour statistics.",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "currency_pair",
+            "in": "path",
+            "required": true,
+            "description": "Currency pair symbol (e.g., btcusd, ethusd, btceur)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ticker data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticker"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid currency pair",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ticker_hour/{currency_pair}/": {
+      "get": {
+        "operationId": "gethourlyticker",
+        "summary": "Get hourly ticker data",
+        "description": "Returns hourly ticker data for the specified currency pair.",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "currency_pair",
+            "in": "path",
+            "required": true,
+            "description": "Currency pair symbol (e.g., btcusd, ethusd)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hourly ticker data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticker"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/order_book/{currency_pair}/": {
+      "get": {
+        "operationId": "getorderbook",
+        "summary": "Get order book",
+        "description": "Returns a JSON dictionary with bids and asks lists of open orders for the specified currency pair.",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "currency_pair",
+            "in": "path",
+            "required": true,
+            "description": "Currency pair symbol (e.g., btcusd, ethusd)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "required": false,
+            "description": "Group orders with the same price (0 = disabled, 1 = enabled, 2 = orders grouped by order price with additional decimal places)",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Order book data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderBook"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/transactions/{currency_pair}/": {
+      "get": {
+        "operationId": "gettransactions",
+        "summary": "Get recent transactions",
+        "description": "Returns a descending list of recent transactions for the specified currency pair.",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "currency_pair",
+            "in": "path",
+            "required": true,
+            "description": "Currency pair symbol (e.g., btcusd, ethusd)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "required": false,
+            "description": "Time interval from which to get transactions (minute, hour, day)",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "minute",
+                "hour",
+                "day"
+              ],
+              "default": "hour"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transaction data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/trading-pairs-info/": {
+      "get": {
+        "operationId": "gettradingpairsinfo",
+        "summary": "Get trading pairs info",
+        "description": "Returns a list of all available trading pairs with their details including minimum order size and decimal precision.",
+        "tags": [
+          "Market Data"
+        ],
+        "responses": {
+          "200": {
+            "description": "Trading pairs info retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TradingPairInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/ohlc/{currency_pair}/": {
+      "get": {
+        "operationId": "getohlcdata",
+        "summary": "Get OHLC data",
+        "description": "Returns OHLC (Open, High, Low, Close) candlestick data for the specified currency pair.",
+        "tags": [
+          "Market Data"
+        ],
+        "parameters": [
+          {
+            "name": "currency_pair",
+            "in": "path",
+            "required": true,
+            "description": "Currency pair symbol (e.g., btcusd, ethusd)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "step",
+            "in": "query",
+            "required": true,
+            "description": "Timeframe in seconds (60, 180, 300, 900, 1800, 3600, 7200, 14400, 21600, 43200, 86400, 259200)",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                60,
+                180,
+                300,
+                900,
+                1800,
+                3600,
+                7200,
+                14400,
+                21600,
+                43200,
+                86400,
+                259200
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Limit OHLC results (minimum 1, maximum 1000)",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "description": "Unix timestamp from when OHLC data will be started",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "description": "Unix timestamp to when OHLC data will be shown",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "exclude_current_candle",
+            "in": "query",
+            "required": false,
+            "description": "Exclude the current (not yet closed) candle",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OHLC data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OhlcResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/currencies/": {
+      "get": {
+        "operationId": "getcurrencies",
+        "summary": "Get available currencies",
+        "description": "Returns a list of available currencies.",
+        "tags": [
+          "Market Data"
+        ],
+        "responses": {
+          "200": {
+            "description": "Currencies list retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Currency name"
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Currency symbol code"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Ticker": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Unix timestamp"
+          },
+          "open": {
+            "type": "string",
+            "description": "First price of the day"
+          },
+          "high": {
+            "type": "string",
+            "description": "Highest price of the day"
+          },
+          "low": {
+            "type": "string",
+            "description": "Lowest price of the day"
+          },
+          "last": {
+            "type": "string",
+            "description": "Last BTC price"
+          },
+          "volume": {
+            "type": "string",
+            "description": "Volume-weighted average of all prices of the day"
+          },
+          "vwap": {
+            "type": "string",
+            "description": "Volume weighted average price"
+          },
+          "bid": {
+            "type": "string",
+            "description": "Highest buy order"
+          },
+          "ask": {
+            "type": "string",
+            "description": "Lowest sell order"
+          },
+          "side": {
+            "type": "string",
+            "description": "Side of the last trade (0 = buy, 1 = sell)"
+          },
+          "open_24": {
+            "type": "string",
+            "description": "Price 24 hours ago"
+          },
+          "percent_change_24": {
+            "type": "string",
+            "description": "Percent change in last 24 hours"
+          },
+          "market_type": {
+            "type": "string",
+            "description": "Market type (e.g., SPOT)"
+          }
+        }
+      },
+      "OrderBook": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Unix timestamp"
+          },
+          "microtimestamp": {
+            "type": "string",
+            "description": "Microsecond precision timestamp"
+          },
+          "bids": {
+            "type": "array",
+            "description": "List of buy orders [price, amount]",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "asks": {
+            "type": "array",
+            "description": "List of sell orders [price, amount]",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Unix timestamp"
+          },
+          "tid": {
+            "type": "string",
+            "description": "Transaction ID"
+          },
+          "price": {
+            "type": "string",
+            "description": "Transaction price"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Transaction amount"
+          },
+          "type": {
+            "type": "string",
+            "description": "Trade type (0 = buy, 1 = sell)"
+          }
+        }
+      },
+      "TradingPairInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Trading pair symbol (e.g., BTC/USD)"
+          },
+          "url_symbol": {
+            "type": "string",
+            "description": "URL-friendly pair identifier (e.g., btcusd)"
+          },
+          "base_decimals": {
+            "type": "integer",
+            "description": "Decimal precision for base asset"
+          },
+          "counter_decimals": {
+            "type": "integer",
+            "description": "Decimal precision for counter/quote asset"
+          },
+          "instant_order_counter_decimals": {
+            "type": "integer",
+            "description": "Decimal precision for instant orders"
+          },
+          "minimum_order": {
+            "type": "string",
+            "description": "Minimum order size with currency"
+          },
+          "trading": {
+            "type": "string",
+            "description": "Trading status (Enabled/Disabled)"
+          },
+          "instant_and_market_orders": {
+            "type": "string",
+            "description": "Instant and market orders availability (Enabled/Disabled)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Full pair name description"
+          }
+        }
+      },
+      "OhlcResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "pair": {
+                "type": "string",
+                "description": "Trading pair symbol"
+              },
+              "ohlc": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OhlcEntry"
+                }
+              }
+            }
+          }
+        }
+      },
+      "OhlcEntry": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Unix timestamp"
+          },
+          "open": {
+            "type": "string",
+            "description": "Opening price"
+          },
+          "high": {
+            "type": "string",
+            "description": "Highest price"
+          },
+          "low": {
+            "type": "string",
+            "description": "Lowest price"
+          },
+          "close": {
+            "type": "string",
+            "description": "Closing price"
+          },
+          "volume": {
+            "type": "string",
+            "description": "Volume traded"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Error status"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Error reason"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Auth",
+        "description": "Bitstamp API key for authenticated endpoints"
+      },
+      "apiSignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Auth-Signature",
+        "description": "HMAC-SHA256 request signature"
+      }
+    }
+  },
+  "security": [
+    {}
+  ],
+  "tags": [
+    {
+      "name": "Market Data",
+      "description": "Public market data endpoints (no authentication required)"
+    }
+  ]
+}

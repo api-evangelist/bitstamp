@@ -1,0 +1,20 @@
+{
+  "operationId": "getorderbook",
+  "summary": "Get order book",
+  "path": "/api/v2/order_book/{currency_pair}/",
+  "method": "GET",
+  "example": {
+    "timestamp": "string",
+    "microtimestamp": "string",
+    "bids": [
+      [
+        "string"
+      ]
+    ],
+    "asks": [
+      [
+        "string"
+      ]
+    ]
+  }
+}

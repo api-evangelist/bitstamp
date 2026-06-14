@@ -1,0 +1,19 @@
+{
+  "operationId": "gettradingpairsinfo",
+  "summary": "Get trading pairs info",
+  "path": "/api/v2/trading-pairs-info/",
+  "method": "GET",
+  "example": [
+    {
+      "name": "string",
+      "url_symbol": "string",
+      "base_decimals": 0,
+      "counter_decimals": 0,
+      "instant_order_counter_decimals": 0,
+      "minimum_order": "string",
+      "trading": "string",
+      "instant_and_market_orders": "string",
+      "description": "string"
+    }
+  ]
+}

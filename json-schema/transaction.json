@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Transaction",
+  "description": "JSON Schema for Bitstamp Transaction",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "description": "Unix timestamp"
+    },
+    "tid": {
+      "type": "string",
+      "description": "Transaction ID"
+    },
+    "price": {
+      "type": "string",
+      "description": "Transaction price"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Transaction amount"
+    },
+    "type": {
+      "type": "string",
+      "description": "Trade type (0 = buy, 1 = sell)"
+    }
+  }
+}

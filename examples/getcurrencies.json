@@ -1,0 +1,12 @@
+{
+  "operationId": "getcurrencies",
+  "summary": "Get available currencies",
+  "path": "/api/v2/currencies/",
+  "method": "GET",
+  "example": [
+    {
+      "name": "string",
+      "symbol": "string"
+    }
+  ]
+}

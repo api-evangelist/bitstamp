@@ -1,0 +1,184 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bitstamp": "https://www.bitstamp.net/api/#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "openapi": "https://spec.openapis.org/oas/3.0.3#",
+    "Ticker": "bitstamp:Ticker",
+    "timestamp": {
+      "@id": "bitstamp:timestamp"
+    },
+    "open": {
+      "@id": "bitstamp:open"
+    },
+    "high": {
+      "@id": "bitstamp:high"
+    },
+    "low": {
+      "@id": "bitstamp:low"
+    },
+    "last": {
+      "@id": "bitstamp:last"
+    },
+    "volume": {
+      "@id": "bitstamp:volume"
+    },
+    "vwap": {
+      "@id": "bitstamp:vwap"
+    },
+    "bid": {
+      "@id": "bitstamp:bid"
+    },
+    "ask": {
+      "@id": "bitstamp:ask"
+    },
+    "side": {
+      "@id": "bitstamp:side"
+    },
+    "open_24": {
+      "@id": "bitstamp:open_24"
+    },
+    "percent_change_24": {
+      "@id": "bitstamp:percent_change_24"
+    },
+    "market_type": {
+      "@id": "bitstamp:market_type"
+    },
+    "OrderBook": "bitstamp:OrderBook",
+    "microtimestamp": {
+      "@id": "bitstamp:microtimestamp"
+    },
+    "bids": {
+      "@id": "bitstamp:bids"
+    },
+    "asks": {
+      "@id": "bitstamp:asks"
+    },
+    "Transaction": "bitstamp:Transaction",
+    "date": {
+      "@id": "bitstamp:date"
+    },
+    "tid": {
+      "@id": "bitstamp:tid"
+    },
+    "price": {
+      "@id": "bitstamp:price"
+    },
+    "amount": {
+      "@id": "bitstamp:amount"
+    },
+    "type": {
+      "@id": "bitstamp:type"
+    },
+    "TradingPairInfo": "bitstamp:TradingPairInfo",
+    "name": {
+      "@id": "bitstamp:name"
+    },
+    "url_symbol": {
+      "@id": "bitstamp:url_symbol"
+    },
+    "base_decimals": {
+      "@id": "bitstamp:base_decimals"
+    },
+    "counter_decimals": {
+      "@id": "bitstamp:counter_decimals"
+    },
+    "instant_order_counter_decimals": {
+      "@id": "bitstamp:instant_order_counter_decimals"
+    },
+    "minimum_order": {
+      "@id": "bitstamp:minimum_order"
+    },
+    "trading": {
+      "@id": "bitstamp:trading"
+    },
+    "instant_and_market_orders": {
+      "@id": "bitstamp:instant_and_market_orders"
+    },
+    "description": {
+      "@id": "bitstamp:description"
+    },
+    "OhlcResponse": "bitstamp:OhlcResponse",
+    "data": {
+      "@id": "bitstamp:data"
+    },
+    "OhlcEntry": "bitstamp:OhlcEntry",
+    "close": {
+      "@id": "bitstamp:close"
+    },
+    "ErrorResponse": "bitstamp:ErrorResponse",
+    "status": {
+      "@id": "bitstamp:status"
+    },
+    "reason": {
+      "@id": "bitstamp:reason"
+    },
+    "code": {
+      "@id": "bitstamp:code"
+    }
+  },
+  "@type": "schema:WebAPI",
+  "@id": "https://www.bitstamp.net/api/",
+  "schema:name": "Bitstamp API",
+  "schema:description": "Bitstamp cryptocurrency exchange REST API providing market data including tickers, order books, transactions, OHLC data, and trading pair information.",
+  "schema:version": "2.0.0",
+  "schema:provider": {
+    "@type": "schema:Organization",
+    "schema:name": "Bitstamp",
+    "schema:url": "https://www.bitstamp.net"
+  },
+  "schema:documentation": "https://www.bitstamp.net/api/",
+  "schema:termsOfService": "https://www.bitstamp.net/terms-of-use/",
+  "bitstamp:endpoints": [
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/ticker/{currency_pair}/",
+      "schema:name": "Get ticker data",
+      "schema:description": "Returns ticker data for the specified currency pair including last price, bid, ask, volume, and 24-hour statistics.",
+      "schema:httpMethod": "GET"
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/ticker_hour/{currency_pair}/",
+      "schema:name": "Get hourly ticker data",
+      "schema:description": "Returns hourly ticker data for the specified currency pair.",
+      "schema:httpMethod": "GET"
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/order_book/{currency_pair}/",
+      "schema:name": "Get order book",
+      "schema:description": "Returns a JSON dictionary with bids and asks lists of open orders for the specified currency pair.",
+      "schema:httpMethod": "GET"
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/transactions/{currency_pair}/",
+      "schema:name": "Get recent transactions",
+      "schema:description": "Returns a descending list of recent transactions for the specified currency pair.",
+      "schema:httpMethod": "GET"
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/trading-pairs-info/",
+      "schema:name": "Get trading pairs info",
+      "schema:description": "Returns a list of all available trading pairs with their details including minimum order size and decimal precision.",
+      "schema:httpMethod": "GET"
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/ohlc/{currency_pair}/",
+      "schema:name": "Get OHLC data",
+      "schema:description": "Returns OHLC (Open, High, Low, Close) candlestick data for the specified currency pair.",
+      "schema:httpMethod": "GET"
+    },
+    {
+      "@type": "schema:EntryPoint",
+      "@id": "https://www.bitstamp.net/api/v2/currencies/",
+      "schema:name": "Get available currencies",
+      "schema:description": "Returns a list of available currencies.",
+      "schema:httpMethod": "GET"
+    }
+  ]
+}

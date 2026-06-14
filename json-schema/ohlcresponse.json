@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OhlcResponse",
+  "description": "JSON Schema for Bitstamp OhlcResponse",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "pair": {
+          "type": "string",
+          "description": "Trading pair symbol"
+        },
+        "ohlc": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OhlcEntry"
+          }
+        }
+      }
+    }
+  }
+}

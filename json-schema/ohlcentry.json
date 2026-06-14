@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OhlcEntry",
+  "description": "JSON Schema for Bitstamp OhlcEntry",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "description": "Unix timestamp"
+    },
+    "open": {
+      "type": "string",
+      "description": "Opening price"
+    },
+    "high": {
+      "type": "string",
+      "description": "Highest price"
+    },
+    "low": {
+      "type": "string",
+      "description": "Lowest price"
+    },
+    "close": {
+      "type": "string",
+      "description": "Closing price"
+    },
+    "volume": {
+      "type": "string",
+      "description": "Volume traded"
+    }
+  }
+}

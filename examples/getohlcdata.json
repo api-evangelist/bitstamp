@@ -1,0 +1,21 @@
+{
+  "operationId": "getohlcdata",
+  "summary": "Get OHLC data",
+  "path": "/api/v2/ohlc/{currency_pair}/",
+  "method": "GET",
+  "example": {
+    "data": {
+      "pair": "string",
+      "ohlc": [
+        {
+          "timestamp": "string",
+          "open": "string",
+          "high": "string",
+          "low": "string",
+          "close": "string",
+          "volume": "string"
+        }
+      ]
+    }
+  }
+}

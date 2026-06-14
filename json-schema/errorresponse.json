@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ErrorResponse",
+  "description": "JSON Schema for Bitstamp ErrorResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "Error status"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Error reason"
+    },
+    "code": {
+      "type": "string",
+      "description": "Error code"
+    }
+  }
+}
