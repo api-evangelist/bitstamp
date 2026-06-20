@@ -1,6 +1,6 @@
 name: Bitstamp
 description: European cryptocurrency exchange offering REST and WebSocket APIs for spot trading, order management, market data, account balances, and transaction history across major crypto pairs. Founded in 2011, Bitstamp provides institutional-grade infrastructure with HMAC-SHA256 authenticated private endpoints, real-time WebSocket streaming, margin trading, derivatives, staking, and travel-rule compliance tooling.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -19,7 +19,7 @@ tags:
 apis:
   - name: Bitstamp REST API
     description: REST API providing public market data endpoints and authenticated private endpoints for trading, account management, withdrawals, deposits, and derivatives across cryptocurrency pairs.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.bitstamp.net/api/
     baseURL: https://www.bitstamp.net
     tags:
@@ -45,7 +45,7 @@ apis:
         email: support@bitstamp.net
   - name: Bitstamp WebSocket API
     description: Real-time WebSocket API providing live market data streams including order book updates, live trades, ticker data, and private account event channels via authenticated token-based subscriptions.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.bitstamp.net/api/
     baseURL: wss://ws.bitstamp.net
     tags:
