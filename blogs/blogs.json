@@ -2,13 +2,11 @@
   "repo": "bitstamp",
   "feeds": [
     {
-      "source": "https://www.bitstamp.net/fee_schedule/",
-      "feed_url": "https://www.bitstamp.net/fee_schedule/",
-      "title": "",
+      "source": "https://www.bitstamp.net/blog/",
       "saved": 0,
-      "method": "none"
+      "error": "empty/JS-rendered page, no scrapable post listing"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:27:50Z"
 }

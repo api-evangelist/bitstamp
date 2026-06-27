@@ -77,7 +77,7 @@ common:
     url: https://www.bitstamp.net/support/
   - type: Login
     url: https://www.bitstamp.net/account/login/
-  - type: SignUp
+  - type: Signup
     url: https://www.bitstamp.net/account/register/
   - type: FeeSchedule
     url: https://www.bitstamp.net/fee_schedule/
