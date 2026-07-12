@@ -65,6 +65,12 @@ apis:
         url: https://www.bitstamp.net/support/
         email: support@bitstamp.net
 common:
+  - type: VulnerabilityDisclosure
+    url: security/bitstamp-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/bitstamp-domain-security.yml
+  - type: Authentication
+    url: authentication/bitstamp-authentication.yml
   - type: Authentication
     url: https://www.bitstamp.net/api/#authentication
   - type: TermsOfService

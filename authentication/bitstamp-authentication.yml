@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-Auth
+  description: Bitstamp API key for authenticated endpoints
+  sources:
+  - openapi/openapi.json
+- name: apiSignature
+  type: apiKey
+  in: header
+  parameter: X-Auth-Signature
+  description: HMAC-SHA256 request signature
+  sources:
+  - openapi/openapi.json
