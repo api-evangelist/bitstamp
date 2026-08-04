@@ -1,0 +1,14 @@
+{
+  "provider": "bitstamp",
+  "sources": [
+    "bitstamp-market-data-api-openapi.yml"
+  ],
+  "outputs": [
+    "bitstamp-market-data-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
