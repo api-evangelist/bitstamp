@@ -39,6 +39,13 @@ apis:
   baseURL: wss://ws.bitstamp.net
   tags:
   - WebSocket
+  - Real-Time
+  - Market Data
+  - Order Book
+  - Trades
+  - Ticker
+  tags_raw:
+  - WebSocket
   - Real-time
   - Market Data
   - Order Book
