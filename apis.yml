@@ -96,6 +96,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/bitstamp/refs/heads/main/finops/finops.yml
 common:
+  - type: Website
+    url: https://www.bitstamp.net/
   - type: AgenticAccess
     url: agentic-access/bitstamp-agentic-access.yml
   - type: VulnerabilityDisclosure
