@@ -55,7 +55,7 @@ apis:
   - Real-Time
   - Market Data
   - Order Book
-  - Trades
+  - Trade
   - Ticker
   tags_raw:
   - WebSocket
