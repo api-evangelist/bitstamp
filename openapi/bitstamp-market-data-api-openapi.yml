@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Bitstamp Market Data API
   description: Bitstamp cryptocurrency exchange REST API providing market data including tickers, order books, transactions, OHLC data, and trading pair information.
@@ -312,6 +312,37 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    OhlcResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            pair:
+              type: string
+              description: Trading pair symbol
+            ohlc:
+              type: array
+              items:
+                $ref: '#/components/schemas/OhlcEntry'
+    Transaction:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Unix timestamp
+        tid:
+          type: string
+          description: Transaction ID
+        price:
+          type: string
+          description: Transaction price
+        amount:
+          type: string
+          description: Transaction amount
+        type:
+          type: string
+          description: Trade type (0 = buy, 1 = sell)
     OrderBook:
       type: object
       properties:
@@ -335,6 +366,27 @@ components:
             type: array
             items:
               type: string
+    OhlcEntry:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          description: Unix timestamp
+        open:
+          type: string
+          description: Opening price
+        high:
+          type: string
+          description: Highest price
+        low:
+          type: string
+          description: Lowest price
+        close:
+          type: string
+          description: Closing price
+        volume:
+          type: string
+          description: Volume traded
     ErrorResponse:
       type: object
       properties:
@@ -347,24 +399,36 @@ components:
         code:
           type: string
           description: Error code
-    Transaction:
+    TradingPairInfo:
       type: object
       properties:
-        date:
+        name:
           type: string
-          description: Unix timestamp
-        tid:
+          description: Trading pair symbol (e.g., BTC/USD)
+        url_symbol:
           type: string
-          description: Transaction ID
-        price:
+          description: URL-friendly pair identifier (e.g., btcusd)
+        base_decimals:
+          type: integer
+          description: Decimal precision for base asset
+        counter_decimals:
+          type: integer
+          description: Decimal precision for counter/quote asset
+        instant_order_counter_decimals:
+          type: integer
+          description: Decimal precision for instant orders
+        minimum_order:
           type: string
-          description: Transaction price
-        amount:
+          description: Minimum order size with currency
+        trading:
           type: string
-          description: Transaction amount
-        type:
+          description: Trading status (Enabled/Disabled)
+        instant_and_market_orders:
           type: string
-          description: Trade type (0 = buy, 1 = sell)
+          description: Instant and market orders availability (Enabled/Disabled)
+        description:
+          type: string
+          description: Full pair name description
     Ticker:
       type: object
       properties:
@@ -407,70 +471,6 @@ components:
         market_type:
           type: string
           description: Market type (e.g., SPOT)
-    OhlcEntry:
-      type: object
-      properties:
-        timestamp:
-          type: string
-          description: Unix timestamp
-        open:
-          type: string
-          description: Opening price
-        high:
-          type: string
-          description: Highest price
-        low:
-          type: string
-          description: Lowest price
-        close:
-          type: string
-          description: Closing price
-        volume:
-          type: string
-          description: Volume traded
-    OhlcResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            pair:
-              type: string
-              description: Trading pair symbol
-            ohlc:
-              type: array
-              items:
-                $ref: '#/components/schemas/OhlcEntry'
-    TradingPairInfo:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Trading pair symbol (e.g., BTC/USD)
-        url_symbol:
-          type: string
-          description: URL-friendly pair identifier (e.g., btcusd)
-        base_decimals:
-          type: integer
-          description: Decimal precision for base asset
-        counter_decimals:
-          type: integer
-          description: Decimal precision for counter/quote asset
-        instant_order_counter_decimals:
-          type: integer
-          description: Decimal precision for instant orders
-        minimum_order:
-          type: string
-          description: Minimum order size with currency
-        trading:
-          type: string
-          description: Trading status (Enabled/Disabled)
-        instant_and_market_orders:
-          type: string
-          description: Instant and market orders availability (Enabled/Disabled)
-        description:
-          type: string
-          description: Full pair name description
   securitySchemes:
     apiKeyAuth:
       type: apiKey
