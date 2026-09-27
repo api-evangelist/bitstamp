@@ -78,7 +78,6 @@ apis:
   name: Bitstamp Market Data API
   description: Public market data endpoints (no authentication required)
   humanURL: https://www.bitstamp.net/api/
-  baseURL: https://www.bitstamp.net
   tags:
   - Market Data
   properties:

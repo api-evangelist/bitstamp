@@ -325,6 +325,18 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/OhlcEntry'
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Error status
+        reason:
+          type: string
+          description: Error reason
+        code:
+          type: string
+          description: Error code
     Transaction:
       type: object
       properties:
@@ -343,29 +355,6 @@ components:
         type:
           type: string
           description: Trade type (0 = buy, 1 = sell)
-    OrderBook:
-      type: object
-      properties:
-        timestamp:
-          type: string
-          description: Unix timestamp
-        microtimestamp:
-          type: string
-          description: Microsecond precision timestamp
-        bids:
-          type: array
-          description: List of buy orders [price, amount]
-          items:
-            type: array
-            items:
-              type: string
-        asks:
-          type: array
-          description: List of sell orders [price, amount]
-          items:
-            type: array
-            items:
-              type: string
     OhlcEntry:
       type: object
       properties:
@@ -387,48 +376,6 @@ components:
         volume:
           type: string
           description: Volume traded
-    ErrorResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Error status
-        reason:
-          type: string
-          description: Error reason
-        code:
-          type: string
-          description: Error code
-    TradingPairInfo:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Trading pair symbol (e.g., BTC/USD)
-        url_symbol:
-          type: string
-          description: URL-friendly pair identifier (e.g., btcusd)
-        base_decimals:
-          type: integer
-          description: Decimal precision for base asset
-        counter_decimals:
-          type: integer
-          description: Decimal precision for counter/quote asset
-        instant_order_counter_decimals:
-          type: integer
-          description: Decimal precision for instant orders
-        minimum_order:
-          type: string
-          description: Minimum order size with currency
-        trading:
-          type: string
-          description: Trading status (Enabled/Disabled)
-        instant_and_market_orders:
-          type: string
-          description: Instant and market orders availability (Enabled/Disabled)
-        description:
-          type: string
-          description: Full pair name description
     Ticker:
       type: object
       properties:
@@ -471,6 +418,59 @@ components:
         market_type:
           type: string
           description: Market type (e.g., SPOT)
+    TradingPairInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Trading pair symbol (e.g., BTC/USD)
+        url_symbol:
+          type: string
+          description: URL-friendly pair identifier (e.g., btcusd)
+        base_decimals:
+          type: integer
+          description: Decimal precision for base asset
+        counter_decimals:
+          type: integer
+          description: Decimal precision for counter/quote asset
+        instant_order_counter_decimals:
+          type: integer
+          description: Decimal precision for instant orders
+        minimum_order:
+          type: string
+          description: Minimum order size with currency
+        trading:
+          type: string
+          description: Trading status (Enabled/Disabled)
+        instant_and_market_orders:
+          type: string
+          description: Instant and market orders availability (Enabled/Disabled)
+        description:
+          type: string
+          description: Full pair name description
+    OrderBook:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          description: Unix timestamp
+        microtimestamp:
+          type: string
+          description: Microsecond precision timestamp
+        bids:
+          type: array
+          description: List of buy orders [price, amount]
+          items:
+            type: array
+            items:
+              type: string
+        asks:
+          type: array
+          description: List of sell orders [price, amount]
+          items:
+            type: array
+            items:
+              type: string
   securitySchemes:
     apiKeyAuth:
       type: apiKey
