@@ -312,19 +312,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    OhlcResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            pair:
-              type: string
-              description: Trading pair symbol
-            ohlc:
-              type: array
-              items:
-                $ref: '#/components/schemas/OhlcEntry'
     TradingPairInfo:
       type: object
       properties:
@@ -355,6 +342,27 @@ components:
         description:
           type: string
           description: Full pair name description
+    OhlcEntry:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          description: Unix timestamp
+        open:
+          type: string
+          description: Opening price
+        high:
+          type: string
+          description: Highest price
+        low:
+          type: string
+          description: Lowest price
+        close:
+          type: string
+          description: Closing price
+        volume:
+          type: string
+          description: Volume traded
     OrderBook:
       type: object
       properties:
@@ -378,57 +386,6 @@ components:
             type: array
             items:
               type: string
-    ErrorResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Error status
-        reason:
-          type: string
-          description: Error reason
-        code:
-          type: string
-          description: Error code
-    Transaction:
-      type: object
-      properties:
-        date:
-          type: string
-          description: Unix timestamp
-        tid:
-          type: string
-          description: Transaction ID
-        price:
-          type: string
-          description: Transaction price
-        amount:
-          type: string
-          description: Transaction amount
-        type:
-          type: string
-          description: Trade type (0 = buy, 1 = sell)
-    OhlcEntry:
-      type: object
-      properties:
-        timestamp:
-          type: string
-          description: Unix timestamp
-        open:
-          type: string
-          description: Opening price
-        high:
-          type: string
-          description: Highest price
-        low:
-          type: string
-          description: Lowest price
-        close:
-          type: string
-          description: Closing price
-        volume:
-          type: string
-          description: Volume traded
     Ticker:
       type: object
       properties:
@@ -471,6 +428,49 @@ components:
         market_type:
           type: string
           description: Market type (e.g., SPOT)
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Error status
+        reason:
+          type: string
+          description: Error reason
+        code:
+          type: string
+          description: Error code
+    Transaction:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Unix timestamp
+        tid:
+          type: string
+          description: Transaction ID
+        price:
+          type: string
+          description: Transaction price
+        amount:
+          type: string
+          description: Transaction amount
+        type:
+          type: string
+          description: Trade type (0 = buy, 1 = sell)
+    OhlcResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            pair:
+              type: string
+              description: Trading pair symbol
+            ohlc:
+              type: array
+              items:
+                $ref: '#/components/schemas/OhlcEntry'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
