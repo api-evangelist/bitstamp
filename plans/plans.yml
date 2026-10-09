@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Bitstamp API Plans
 description: Bitstamp does not offer tiered subscription plans for API access. All registered users receive full API access. Trading fees are volume-based (30-day rolling volume), decreasing as monthly trading volume increases. Institutional clients may negotiate custom fee arrangements.
 plans:
@@ -31,3 +35,21 @@ plans:
       - Dedicated account support
       - Co-location and low-latency options
       - Custom settlement arrangements
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Standard API Access
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Institutional / Custom
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
