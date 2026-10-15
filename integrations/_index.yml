@@ -75,3 +75,84 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
+- slug: bitstamp-iso-10383-mic
+  label: ISO 10383 (MIC)
+  partner_name: ISO 10383 (MIC)
+  category: registered trading venues and market segments
+  type: register
+  channel: standard-directory
+  evidence: https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.csv
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: ISO 10383 Market Identifier Codes (ISO 20022 registration authority)
+    spec_file: null
+    standard: ISO 10383
+    role: venue operator
+    matched_domain: bitstamp.net
+    matched_by: domain:bitstamp.net
+    categories:
+    - CASP
+    - MLTF
+    operating_mics:
+    - BBVI
+    - BESA
+    - BFSD
+    - BPTE
+    - BTSP
+    - BUKL
+    - BUSA
+    mics:
+    - mic: BFSD
+      operating_mic: BFSD
+      segment: OPRT
+      market: BITSTAMP DERIVATIVES EXCHANGE
+      category: MLTF
+      legal_name: BITSTAMP FINANCIAL SERVICES LTD
+      country: SI
+    - mic: BESA
+      operating_mic: BESA
+      segment: OPRT
+      market: BITSTAMP EUROPE
+      category: CASP
+      legal_name: BITSTAMP EUROPE S.A.
+      country: LU
+    - mic: BTSP
+      operating_mic: BTSP
+      segment: OPRT
+      market: BITSTAMP LTD
+      category: CASP
+      legal_name: BITSTAMP LIMITED
+      country: GB
+    - mic: BBVI
+      operating_mic: BBVI
+      segment: OPRT
+      market: BITSTAMP GLOBAL
+      category: CASP
+      legal_name: BITSTAMP GLOBAL LIMITED
+      country: VG
+    - mic: BUKL
+      operating_mic: BUKL
+      segment: OPRT
+      market: BITSTAMP UK LTD
+      category: CASP
+      legal_name: BITSTAMP UK LTD
+      country: GB
+    - mic: BUSA
+      operating_mic: BUSA
+      segment: OPRT
+      market: BITSTAMP USA, INC.
+      category: CASP
+      legal_name: BITSTAMP USA, INC.
+      country: US
+    - mic: BPTE
+      operating_mic: BPTE
+      segment: OPRT
+      market: BITSTAMP ASIA PTE. LTD.
+      category: CASP
+      legal_name: BITSTAMP ASIA PTE. LTD.
+      country: SG
+    detected_by: sweep-capital-markets.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
