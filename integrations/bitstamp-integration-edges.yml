@@ -76,6 +76,37 @@ edges:
     detected: '2026-10-14'
   detected_by: sweep-crypto.py
   first_seen: '2026-10-14'
+- partner_name: FinCEN (MSB registration)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://msb.fincen.gov/
+  category: Money services business
+  contract_reference:
+    register: FinCEN MSB Registrant Search (msb.fincen.gov, full list export)
+    spec_file: null
+    standard: FinCEN MSB registration (US Bank Secrecy Act)
+    role: fincen-msb-registrant
+    registered_name: Bitstamp Ltd.
+    dba_name: null
+    register_id: Bitstamp Ltd.
+    matched_domain: bitstamp.net
+    matched_by: domain
+    identity: wikidata Q16971589 'Bitstamp' P856 https://www.bitstamp.net/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+    msb_activities:
+    - 409 money transmitter
+    states_of_activity: 1
+    received_date: 06/21/2024
+    signal_note: 'participation only: an MSB registration is not a licence or a certification; activities and states
+      are context, never counted'
+    detected_by: sweep-regtech-aml.py
+    detected: '2026-10-15'
+  detected_by: sweep-regtech-aml.py
+  first_seen: '2026-10-15'
 - partner_name: ISO 10383 (MIC)
   partner: null
   type: register
@@ -154,40 +185,9 @@ edges:
       legal_name: BITSTAMP ASIA PTE. LTD.
       country: SG
     detected_by: sweep-capital-markets.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-capital-markets.py
-  first_seen: '2026-10-15'
-- partner_name: FinCEN (MSB registration)
-  partner: null
-  partner_match: register
-  type: contract
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://msb.fincen.gov/
-  category: Money services business
-  contract_reference:
-    register: FinCEN MSB Registrant Search (msb.fincen.gov, full list export)
-    spec_file: null
-    standard: FinCEN MSB registration (US Bank Secrecy Act)
-    role: fincen-msb-registrant
-    registered_name: Bitstamp Ltd.
-    dba_name: null
-    register_id: Bitstamp Ltd.
-    matched_domain: bitstamp.net
-    matched_by: domain
-    identity: wikidata Q16971589 'Bitstamp' P856 https://www.bitstamp.net/
-    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
-    msb_activities:
-    - 409 money transmitter
-    states_of_activity: 1
-    received_date: 06/21/2024
-    signal_note: 'participation only: an MSB registration is not a licence or a certification; activities and states
-      are context, never counted'
-    detected_by: sweep-regtech-aml.py
-    detected: '2026-10-15'
-  detected_by: sweep-regtech-aml.py
-  first_seen: '2026-10-15'
+  first_seen: '2026-10-19'
 generated: '2026-10-13'
 method: searched
 checked:
