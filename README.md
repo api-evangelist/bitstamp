@@ -64,60 +64,151 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bitstamp is a European cryptocurrency exchange founded in 2011, offering REST and WebSocket APIs for spot trading, order management, market data, account balance inquiries, and transaction history across major crypto pairs including BTC, ETH, XRP, LTC, and many others.
+European cryptocurrency exchange offering REST and WebSocket APIs for spot trading, order management, market data, account balances, and transaction history across major crypto pairs. Founded in 2011, Bitstamp provides institutional-grade infrastructure with HMAC-SHA256 authenticated private endpoints, real-time WebSocket streaming, margin trading, derivatives, staking, and travel-rule compliance tooling.
 
-**API Documentation:** https://www.bitstamp.net/api/
+**Areas:** Cryptocurrency · Exchange · Trading · Bitcoin · Ethereum · Spot Trading · WebSocket · Market Data · Order Management · Finance
 
-## APIs
+## Bitstamp on APIs.io
 
-- **REST API** — Public market data and authenticated private endpoints for trading and account management. Base URL: `https://www.bitstamp.net`
-- **WebSocket API v2** — Real-time streaming of order book updates, live trades, ticker data, and private account events. Connection URL: `wss://ws.bitstamp.net`
+Everything profiled for Bitstamp is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bitstamp/](https://apis.io/providers/bitstamp/)** — or go straight to one of the APIs or properties below.
 
-## Authentication
+### APIs (2)
 
-Private REST endpoints require HMAC-SHA256 signature authentication using five mandatory headers:
+- [Bitstamp WebSocket API](https://apis.io/apis/bitstamp/bitstamp-websocket-api/) — Real-time WebSocket API providing live market data streams including order book updates, live trades, ticker data, and private account event channels via…
+- [Bitstamp Market Data API](https://apis.io/apis/bitstamp/bitstamp-market-data-api/) — Public market data endpoints (no authentication required)
 
-- `X-Auth`: `BITSTAMP {api_key}`
-- `X-Auth-Signature`: SHA256 HMAC of the request components
-- `X-Auth-Nonce`: Unique 36-character lowercase string (valid for 150 seconds)
-- `X-Auth-Timestamp`: UTC timestamp in milliseconds
-- `X-Auth-Version`: `v2`
+### Published properties
 
-WebSocket private channels use tokens obtained via `POST /api/v2/websockets_token/`.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Rate Limits
+#### Agentic access (1)
 
-- 400 requests per second (standard)
-- 10,000 requests per 10-minute window (default burst threshold)
-- Custom limits available for institutional clients
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Key Endpoints
+- [Bitstamp Agentic Access](https://apis.io/agentic-access/bitstamp/bitstamp-agentic-access/)
 
-### Public (no auth required)
-- `GET /api/v2/ticker/{market_symbol}/` — Current ticker
-- `GET /api/v2/order_book/{market_symbol}/` — Order book
-- `GET /api/v2/transactions/{market_symbol}/` — Recent transactions
-- `GET /api/v2/ohlc/{market_symbol}/` — OHLC candlestick data
-- `GET /api/v2/markets/` — All available markets
-- `GET /api/v2/currencies/` — All supported currencies
+#### JSON Schema (7)
 
-### Private (auth required)
-- `GET /api/v2/account_balances/` — Account balances
-- `POST /api/v2/buy/{market_symbol}/` — Place buy order
-- `POST /api/v2/sell/{market_symbol}/` — Place sell order
-- `POST /api/v2/cancel_order/` — Cancel order
-- `GET /api/v2/open_orders/all/` — List open orders
-- `GET /api/v2/fees/trading/` — Trading fee schedule
-- `POST /api/v2/revoke_all_api_keys/` — Kill-switch: revoke all API keys
+The data models the API reads and writes.
 
-## Fees
+- [ErrorResponse](https://apis.io/schemas/bitstamp/errorresponse/)
+- [OhlcEntry](https://apis.io/schemas/bitstamp/ohlcentry/)
+- [OhlcResponse](https://apis.io/schemas/bitstamp/ohlcresponse/)
+- [OrderBook](https://apis.io/schemas/bitstamp/orderbook/)
+- [Ticker](https://apis.io/schemas/bitstamp/ticker/)
+- [TradingPairInfo](https://apis.io/schemas/bitstamp/tradingpairinfo/)
+- [Transaction](https://apis.io/schemas/bitstamp/transaction/)
 
-API access is free. Trading fees use a volume-based maker/taker model starting at 0.30% maker / 0.40% taker for volumes under $10,000/month, reducing to 0.00% maker / 0.03% taker for volumes over $20M/month.
+#### Examples (7)
 
-## Links
+Example requests and responses.
 
-- [API Documentation](https://www.bitstamp.net/api/)
-- [Fee Schedule](https://www.bitstamp.net/fee_schedule/)
-- [Status Page](https://status.bitstamp.net/)
+- [Getcurrencies](https://apis.io/examples/bitstamp/getcurrencies/)
+- [Gethourlyticker](https://apis.io/examples/bitstamp/gethourlyticker/)
+- [Getohlcdata](https://apis.io/examples/bitstamp/getohlcdata/)
+- [Getorderbook](https://apis.io/examples/bitstamp/getorderbook/)
+- [Getticker](https://apis.io/examples/bitstamp/getticker/)
+- [Gettradingpairsinfo](https://apis.io/examples/bitstamp/gettradingpairsinfo/)
+- [Gettransactions](https://apis.io/examples/bitstamp/gettransactions/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Bitstamp Market Data API](https://apis.io/collections/bitstamp/open-bitstamp-market-data-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Bitstamp — jsonschema rules](https://apis.io/rules/bitstamp/bitstamp-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bitstamp Authentication](https://apis.io/security/bitstamp/bitstamp-authentication/)
+- [Bitstamp Domain Security](https://apis.io/security/bitstamp/bitstamp-domain-security/)
+- [Bitstamp Vulnerability Disclosure](https://apis.io/security/bitstamp/bitstamp-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/bitstamp/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/bitstamp/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/bitstamp/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.bitstamp.net/)
 - [Support](https://www.bitstamp.net/support/)
-- [Institutional](https://www.bitstamp.net/institutional/)
+- [Blog](https://www.bitstamp.net/blog/)
+- [Terms of service](https://www.bitstamp.net/terms-of-use/)
+- [Privacy policy](https://www.bitstamp.net/privacy-policy/)
+- [Status](https://status.bitstamp.net/)
+
+## API Evangelist rating
+
+**Kin Score 28.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 49.6 |
+| Contract governance | 9.8 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 11.8 |
+
+**Agent readiness 29.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.2** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bitstamp/](https://apis.io/providers/bitstamp/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bitstamp: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bitstamp/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
